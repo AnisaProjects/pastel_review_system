@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const PASTEL_BEAUTY_URL = "https://v0-pastel-beauty-app.vercel.app/review";
+const PASTEL_SHOP_BEAUTY_URL = "https://v0-pastel-beauty-app.vercel.app/review";
 
 export default function LandingPage() {
   const [copied, setCopied] = useState(false);
@@ -59,7 +60,7 @@ export default function LandingPage() {
 
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="rounded-full bg-primary px-8 text-primary-foreground shadow-lg transition-all hover:scale-105 hover:bg-primary/90 hover:shadow-xl">
-              <a href={PASTEL_BEAUTY_URL} target="_blank" rel="noopener noreferrer">
+              <a href={PASTEL_SHOP_BEAUTY_URL} target="_blank" rel="noopener noreferrer">
                 Visit Our Shop
                 <ExternalLink className="ml-2 h-4 w-4" />
               </a>
