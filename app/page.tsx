@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const PASTEL_BEAUTY_URL = "https://v0-pastel-beauty-app.vercel.app/review";
-const PASTEL_SHOP_BEAUTY_URL = "https://www.pastel-beauty.com/";
+const PASTEL_SHOP_BEAUTY_URL = "https://v0-pastel-beauty-app.vercel.app/review";
 
 export default function LandingPage() {
   const [copied, setCopied] = useState(false);
@@ -79,7 +79,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Scan to Visit Our Shop
+              Scan to Leave a Review
             </h2>
             <p className="text-muted-foreground">
               Discover our collection of clean beauty products
