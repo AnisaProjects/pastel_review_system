@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const PASTEL_BEAUTY_URL = "https://v0-pastel-beauty-app.vercel.app/review";
-const PASTEL_SHOP_BEAUTY_URL = "https://v0-pastel-beauty-app.vercel.app/review";
+const PASTEL_SHOP_BEAUTY_URL = "https://www.pastel-beauty.com/";
 
 export default function LandingPage() {
   const [copied, setCopied] = useState(false);
