@@ -196,7 +196,6 @@ export default function LandingPage() {
             "🐰 Cruelty-Free",
             "🌱 Vegan Formula",
             "✨ Vitamin E Rich",
-            "🇳🇵 Made in Nepal",
           ].map((badge) => (
             <span key={badge} className="whitespace-nowrap">
               {badge}
@@ -205,54 +204,71 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* QR Code Section */}
-      <section className="bg-[#FDECEF] px-4 py-20 md:py-28">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-10 text-center">
-            <h2 className="mb-3 font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Scan to Leave a Review
-            </h2>
-            <p className="text-muted-foreground">Share your Pastel Beauty experience with our community</p>
+     {/* QR Code Section */}
+<section className="bg-[#FDECEF] px-4 py-20 md:py-28">
+  <div className="mx-auto max-w-4xl">
+    <div className="mb-10 text-center">
+      <h2 className="mb-3 font-serif text-3xl font-bold text-foreground md:text-4xl">
+        Scan to Leave a Review
+      </h2>
+
+      <p className="text-muted-foreground">
+        Share your Pastel Beauty experience with our community
+      </p>
+    </div>
+
+    <Card className="mx-auto max-w-md overflow-hidden rounded-3xl border-0 bg-white shadow-2xl">
+      <CardContent className="p-8 md:p-12">
+        <div className="mb-8 flex justify-center">
+          <div className="rounded-2xl bg-[#FDECEF] p-6">
+            {mounted ? (
+              <QRCodeSVG
+                key={Date.now()}
+                value="https://v0-pastel-beauty-app.vercel.app/review"
+                size={220}
+                bgColor="#FDECEF"
+                fgColor="#D9778E"
+                level="H"
+                includeMargin={true}
+              />
+            ) : (
+              <div className="h-[220px] w-[220px] animate-pulse rounded-xl bg-[#F9DDE5]" />
+            )}
           </div>
-
-          <Card className="mx-auto max-w-md overflow-hidden rounded-3xl border-0 bg-white shadow-2xl">
-            <CardContent className="p-8 md:p-12">
-              <div className="mb-8 flex justify-center">
-                <div className="rounded-2xl bg-[#FDECEF] p-6">
-                  {mounted ? (
-                    <QRCodeSVG
-                      value={REVIEW_URL}
-                      size={200}
-                      bgColor="#FDECEF"
-                      fgColor="#D9778E"
-                      level="H"
-                      includeMargin={false}
-                    />
-                  ) : (
-                    <div className="h-[200px] w-[200px] animate-pulse rounded-xl bg-[#F9DDE5]" />
-                  )}
-                </div>
-              </div>
-
-              <div className="text-center">
-                <p className="mb-3 text-sm text-muted-foreground">Or copy the link to share</p>
-                <div className="flex items-center gap-2 rounded-xl bg-[#FDECEF] p-3">
-                  <code className="flex-1 truncate text-xs text-foreground">{REVIEW_URL}</code>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={copyToClipboard}
-                    className="shrink-0 text-primary hover:bg-primary/10"
-                  >
-                    {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
-      </section>
 
+        <div className="text-center">
+          <p className="mb-3 text-sm text-muted-foreground">
+            Or copy the link to share
+          </p>
+
+          <div className="flex items-center gap-2 rounded-xl bg-[#FDECEF] p-3">
+            <code className="flex-1 truncate text-xs text-foreground">
+              https://v0-pastel-beauty-app.vercel.app/review
+            </code>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  "https://v0-pastel-beauty-app.vercel.app/review"
+                );
+              }}
+              className="shrink-0 text-primary hover:bg-primary/10"
+            >
+              {copied ? (
+                <Check className="h-4 w-4" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
+            </Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  </div>
+</section>
       {/* Customer Reviews Section — white with rose-to-purple gradient */}
       {topReviews.length > 0 && (
         <section
